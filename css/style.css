@@ -100,11 +100,18 @@ body {
 }
 .nav-link a,
 .adress-nav a {
+  position: relative;
   padding: 32px 0;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-link-item {
   color: var(--main-color);
 }
 .nav-link a:hover,
@@ -117,8 +124,20 @@ body {
 .footer-contact a:focus {
   color: var(--brand-color);
 }
-.current a {
+
+.current {
   color: var(--brand-color);
+}
+.current::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--brand-color);
 }
 .adress-nav a {
   color: var(--second-color);
@@ -170,6 +189,9 @@ body {
   color: #ffffff;
   background-color: var(--brand-color);
   cursor: pointer;
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn:hover,
 .btn:focus {
@@ -231,7 +253,26 @@ body {
   text-align: center;
   letter-spacing: 0.03em;
 }
+.works-wrap {
+  position: relative;
+}
+.works-item-text {
+  position: absolute;
+  bottom: 0;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  width: 100%;
 
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  color: #ffffff;
+  background-color: rgba(47, 48, 58, 0.8);
+}
 /* ------------------TEAM-------------------- */
 
 .employee {
@@ -286,6 +327,9 @@ body {
   color: #afb1b8;
   background-color: #ffffff;
   border-radius: 50%;
+  transition-property: background-color, color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-contact-link:hover,
 .social-contact-link:focus {
@@ -311,6 +355,9 @@ body {
   color: #afb1b8;
   border: 1px solid #afb1b8;
   border-radius: 4px;
+  transition-property: color, border;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .clients-link:hover,
 .clients-link:focus {
@@ -343,6 +390,9 @@ body {
   background-color: #f5f4fa;
   color: var(--main-color);
   cursor: pointer;
+  transition-property: background-color, box-shadow, color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .filter-btn button:hover,
 .filter-btn button:focus {
@@ -358,6 +408,12 @@ body {
 }
 .works-example-item {
   width: calc((100% - 60px) / 3);
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.works-example-item:hover .works-example-text-top {
+  transform: translateY(0);
 }
 .works-example-item:hover {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
@@ -383,6 +439,30 @@ body {
   border-right: 1px solid #eeeeee;
   border-left: 1px solid #eeeeee;
   border-bottom: 1px solid #eeeeee;
+}
+.works-example-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.works-example-text-top {
+  position: absolute;
+  top: 0;
+  padding-top: 63px;
+  padding-left: 24px;
+  padding-right: 24px;
+  height: 100%;
+  width: 100%;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+
+  color: #ffffff;
+  background-color: rgba(33, 150, 243, 0.9);
+
+  transform: translateY(100%);
+  transition-property: transform;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ------------------FOOTER-------------------- */
@@ -430,6 +510,9 @@ body {
 .footer-link {
   color: #ffffff;
   background-color: rgba(255, 255, 255, 0.1);
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-link:hover,
 .footer-link:focus {
@@ -470,7 +553,7 @@ body {
 
   transform: translate(-50%, -50%);
   transition: transform 200ms ease-in;
-} 
+}
 
 .backdrop.is-hidden .modal {
   transform: translate(-50%, -70%);
